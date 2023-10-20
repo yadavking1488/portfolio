@@ -1,0 +1,54 @@
+// JavaScript for Portfolio Website
+
+// Function to toggle the mobile navigation menu
+function toggleMobileMenu() {
+  const nav = document.querySelector('nav');
+  nav.classList.toggle('active');
+}
+
+// Function to close the mobile navigation menu when a link is clicked
+function closeMobileMenu() {
+  const nav = document.querySelector('nav');
+  nav.classList.remove('active');
+}
+
+// Smooth scroll to anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const targetId = this.getAttribute('href').substring(1);
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop,
+        behavior: 'smooth',
+      });
+    }
+  });
+});
+
+// Function to handle form submission (replace with your form logic)
+function submitForm() {
+  // Your form handling code here
+  alert('Form submission is not implemented in this example.');
+}
+
+// Event listener for the mobile menu button
+const menuButton = document.querySelector('.menu-button');
+menuButton.addEventListener('click', toggleMobileMenu);
+
+// Event listener for mobile menu links
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', closeMobileMenu);
+});
+
+// Event listener for the contact form submission
+const form = document.querySelector('form');
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  submitForm();
+});
+
+// Additional JavaScript for your website's specific functionality
